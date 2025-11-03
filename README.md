@@ -1,149 +1,176 @@
-# Projeto Integrador — Grupo G152 (SEM2 PI 24/25)
+# Integrative Project – Semester 2 – Group G152 (2024/25)
 
-**Curso:** Licenciatura em Engenharia Informática — ISEP (Degree in Informatics Engineering)  
-**Disciplina:** Projecto Integrador (2.º semestre 2024/2025)  
-**Repositório:** `sem2-pi-24.25-g152` — template/implementação inicial disponibilizada no repositório. :contentReference[oaicite:1]{index=1}
-
----
-
-## Sumário
-- [Visão Geral](#visão-geral)  
-- [Estado atual do repositório](#estado-atual-do-repositório)  
-- [Funcionalidades principais e componentes](#funcionalidades-principais-e-componentes)  
-- [Requisitos e tecnologias](#requisitos-e-tecnologias)  
-- [Instalação, build e execução](#instalação-build-e-execução)  
-- [Estrutura do repositório](#estrutura-do-repositório)  
-- [MATCP & MDISC — onde estão e como usar](#matcp--mdisc---onde-estão-e-como-usar)  
-- [Testes & Cobertura](#testes--cobertura)  
-- [Fluxo de trabalho Git / Contribuição](#fluxo-de-trabalho-git--contribuição)  
-- [Sugestões de CI / Badges / Automação](#sugestões-de-ci--badges--automação)  
-- [Roadmap e melhorias futuras](#roadmap-e-melhorias-futuras)  
-- [Licença & Contactos](#licença--contactos)
+**Degree:** BSc in Computer Engineering – ISEP  
+**Course:** Integrative Project (PI) – 2nd Semester  
+**Repository:** `sem2-pi-24.25-g152`
 
 ---
 
-## Visão geral
-Este repositório é um template + implementação de suporte para o Projecto Integrador do 2.º semestre, fornecendo:
-- Artefactos didácticos (templates, documentação e evidências de sprint).  
-- Uma aplicação Java de exemplo com estrutura Maven.  
-- Um notebook MATCP com user stories/planeamento.  
-Os ficheiros principais e a organização actual do repositório foram encontrados na raiz: `pom.xml`, `matcp.ipynb`, `docs/`, `src/`. :contentReference[oaicite:2]{index=2}
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Current Repository State](#current-repository-state)
+- [Main Features & Components](#main-features--components)
+- [Technologies & Requirements](#technologies--requirements)
+- [Installation, Build & Execution](#installation-build--execution)
+- [Repository Structure](#repository-structure)
+- [MATCP & MDISC Overview](#matcp--mdisc-overview)
+- [Testing & Coverage](#testing--coverage)
+- [Git Workflow & Contribution](#git-workflow--contribution)
+- [Documentation Guidelines](#documentation-guidelines)
+- [Continuous Integration / Badges](#continuous-integration--badges)
+- [Roadmap & Future Improvements](#roadmap--future-improvements)
+- [Known Issues](#known-issues)
+- [License & Contact](#license--contact)
 
 ---
 
-## Estado atual do repositório
-- Repositório público com uma implementação base (código Java e Jupyter notebook). :contentReference[oaicite:3]{index=3}  
-- `pom.xml` já define a estrutura de build/packaging (o `mainClass` sugerido para o empacotamento no `pom.xml` é `pt.ipp.isep.dei.esoft.project.ui.Main`). Isto permite gerar um JAR “com dependências” se o `maven-assembly-plugin` for configurado. :contentReference[oaicite:4]{index=4}
+## Project Overview
+This repository hosts the codebase and documentation for the **Integrative Project (PI)** of the 2nd semester (academic year 2024/25), developed by **Group G152**.  
+The project combines **software engineering principles, Agile practices (Scrum), object-oriented design, testing, and continuous integration**.
+
+Students are expected to design, implement, and document a complete software solution, divided into sprints with corresponding artefacts and deliverables.
 
 ---
 
-## Funcionalidades principais e componentes
-(Resumo do que existe/espera-se com base no conteúdo do repositório)
-- **Aplicação MDISC/Main**: aplicação Java com interface (CLI) que pode ser iniciada a partir do `Main.java` — indicado no `pom.xml`. :contentReference[oaicite:5]{index=5}  
-- **MATCP**: notebook (`matcp.ipynb`) com user stories MATCP e documentação associada — serve como base para identificação de US e planificação de sprints. :contentReference[oaicite:6]{index=6}  
-- **Docs / Templates**: templates para requisitos, design, testes e artefactos de sprint (em `docs/`). :contentReference[oaicite:7]{index=7}
+## Current Repository State
+- Public repository containing the base project structure.  
+- Configured with **Maven** (`pom.xml`) for dependency management and build automation.  
+- Contains both **MATCP** (planning and user story notebook) and **MDISC** (application code).  
+- Includes documentation folders and templates for sprint reports and technical documents.  
+- The project’s entry point is defined as  
+  `pt.ipp.isep.dei.esoft.project.ui.Main` in the Maven configuration.
 
 ---
 
-## Requisitos e tecnologias
-- Java (recomenda-se Java 17+ — ajusta conforme `pom.xml`)  
-- Apache Maven (3.6+) para build, testes e packaging.  
-- Jupyter / JupyterLab para visualizar/editar `matcp.ipynb` (opcional).  
-- IDE recomendada: IntelliJ IDEA ou VSCode com extensão Java/Maven.  
-(Informação corroborada pela presença de `pom.xml`, `src` e `matcp.ipynb` no repositório). :contentReference[oaicite:8]{index=8}
+## Main Features & Components
+- **Main Application (MDISC)**  
+  Java application with a main entry point for console-based or GUI execution.  
+- **MATCP Notebook (`matcp.ipynb`)**  
+  Jupyter notebook that stores user stories, backlog definitions, and sprint planning material.  
+- **Documentation & Templates**  
+  Located under `docs/`, containing system documentation, sprint evidence, and UML artefacts.  
+- **Build System**  
+  Apache Maven handles dependencies, packaging, and testing.  
+- **Testing Setup**  
+  JUnit + JaCoCo are supported for unit testing and coverage reporting.
 
 ---
 
-## Instalação, build e execução
+## Technologies & Requirements
+- **Java** – version 17 or higher (as per `pom.xml`)  
+- **Apache Maven** 3.6 or newer  
+- **Git + GitHub** – version control and issue tracking  
+- **IDE** – IntelliJ IDEA / VSCode with Java plugin  
+- **Jupyter Notebook** (for `matcp.ipynb`, optional)
 
-### 1) Clonar repositório
+---
+
+## Installation, Build & Execution
+
+### 1. Clone the repository
 ```bash
 git clone https://github.com/BMSaiko/sem2-pi-24.25-g152.git
 cd sem2-pi-24.25-g152
-2) Build com Maven (compilar + testes)
+2. Compile and run unit tests
 bash
 Copiar código
 mvn clean test
-3) Gerar JAR executável com dependências
-No pom.xml está sugerida a utilização do maven-assembly-plugin para gerar um jar-with-dependencies. Se já estiver configurado, basta:
+3. Generate documentation (optional)
+bash
+Copiar código
+mvn javadoc:javadoc
+mvn javadoc:test-javadoc
+4. Create an executable JAR
+Make sure the maven-assembly-plugin in pom.xml is configured with
+jar-with-dependencies. Then run:
 
 bash
 Copiar código
 mvn package
-# Resultado em: target/project-template-1.0-SNAPSHOT-jar-with-dependencies.jar
-O pom.xml aponta o Main para pt.ipp.isep.dei.esoft.project.ui.Main (ver pom.xml). Ajusta se necessário. 
-GitHub
+Result:
+target/project-template-1.0-SNAPSHOT-jar-with-dependencies.jar
 
-4) Executar o JAR
+5. Execute the JAR
 bash
 Copiar código
 java -jar target/project-template-1.0-SNAPSHOT-jar-with-dependencies.jar
-5) Executar a partir da IDE
-Importa o projeto como um projecto Maven e corre a classe pt.ipp.isep.dei.esoft.project.ui.Main (ou outra classe Main que exista/definas).
+Repository Structure
+css
+Copiar código
+/
+├── docs/                      ← Documentation, sprint evidence, and templates
+│   ├── system-documentation/  ← UML, ADRs, diagrams
+│   └── sprint1/…              ← Sprint folders
+├── src/                       ← Java source code
+│   └── main/java/pt/ipp/isep/dei/esoft/project/ui/Main.java
+├── matcp.ipynb                ← MATCP notebook (user stories and planning)
+├── pom.xml                    ← Maven configuration file
+├── README_MATCP.md            ← MATCP-specific notes
+├── .gitignore                 ← Git ignore rules
+└── README.md                  ← This file
+MATCP & MDISC Overview
+MATCP (Planning Layer)
+Contains user stories, acceptance criteria, priorities, and backlog items.
 
-Estrutura do repositório (detalhada)
+Implemented using a Jupyter Notebook (matcp.ipynb).
+
+MDISC (Implementation Layer)
+The executable application built in Java.
+
+Source code located in src/ following standard Maven structure.
+
+Main class: pt.ipp.isep.dei.esoft.project.ui.Main.
+
+Testing & Coverage
+The pom.xml supports test execution and coverage validation using JUnit and JaCoCo.
+
+Commands:
+
 bash
 Copiar código
-/ (repo root)
-├─ .idea/ or .vscode/        # IDE config (não comitar secrets)
-├─ MATCP/                    # Material / exercícios MATCP (user stories)
-├─ docs/                     # Documentação e templates de sprint
-├─ src/                      # Código-fonte Java (package structure)
-├─ matcp.ipynb               # Notebook com user stories MATCP
-├─ pom.xml                   # Configuração Maven (dependências/build)
-├─ README_MATCP.md           # Documento com info MATCP
-└─ README.md                 # Este ficheiro
-(Conteúdo visível no repositório). 
-GitHub
+mvn test jacoco:report
+mvn test jacoco:check
+Reports are generated under:
 
-MATCP & MDISC — onde estão e como usar
-matcp.ipynb: contém as user stories e análises que a equipa deverá usar como base para as US e criterios de aceitação. Abre com Jupyter. 
-GitHub
+bash
+Copiar código
+target/site/jacoco/
+Git Workflow & Contribution
+Main branch: stable and deployable code.
 
-docs/system-documentation/sprint2/ (e pastas por US): contém documentação gerada por sprint e os artefactos associados. Usa essas pastas para anexar diagramas (UML), casos de uso e registos de decisão de arquitectura.
+Feature branches: named using the pattern
+<ID>_<USname> → e.g., 1_US3_login_module.
 
-Testes & Cobertura
-O pom.xml já refere objetivos comuns (mvn test, jacoco report/check). Recomenda-se:
+Pull Requests: required for all merges into main, with peer review.
 
-Escrever testes JUnit para todas as classes core.
+Commit Message Format:
 
-Configurar JaCoCo para gerar relatório e falhar o pipeline se cobertura < threshold (ex.: 70%).
-Comandos suportados (documentados): mvn clean test, mvn test jacoco:report, mvn test jacoco:check. 
-GitHub
-+1
+makefile
+Copiar código
+US-15: Implement customer registration validation
+Branch Rules:
 
-Convenções de Git / Fluxo de trabalho (recomendado)
-Branch main — código estável / entregue.
+Keep commits small and atomic.
 
-Branches de trabalho: <US-ID>_<nome_curto> (ex.: 12_US3_login-module). (Já sugerido no repositório). 
-GitHub
+Reference issues or user stories in commit messages.
 
-Pull Requests obrigatórios para merge em main com ao menos 1 reviewer.
+Documentation Guidelines
+All diagrams and technical artefacts should be stored in docs/system-documentation/.
 
-Commits curtos e descritivos: US-12: Implement login validations.
+Each sprint should include:
 
-Issues: utilizar GitHub Issues para bugs/tarefas e linkar PRs a issues.
+Sprint goal & summary
 
-Boas práticas de documentação
-Atualizar docs/system-documentation/ por sprint com: diagramas de classes (UML), diagrama de sequência, decisões de arquitectura (ADR), e resultados de testes.
+List of implemented user stories
 
-Preencher README_MATCP.md com sumário das user stories implementadas por sprint. 
-GitHub
+Retrospective observations
 
-Sugestões de CI / Badges / Automação
-Sugiro configurar GitHub Actions com os seguintes passos:
+README_MATCP.md summarises MATCP user stories and sprint progress.
 
-Workflow maven.yml que execute em push/PR:
+Continuous Integration / Badges
+You can automate builds and testing using GitHub Actions.
 
-mvn -B clean verify (compilar, executar testes).
-
-Gerar relatório JaCoCo e publicar artefactos via Actions (opcional).
-
-Badge de build (Actions) e badge de cobertura no README.md.
-
-Se necessário, adicionar etapa de checkstyle / spotbugs para qualidade de código.
-
-Exemplo de job básico (GitHub Actions):
+Example workflow: .github/workflows/maven.yml
 
 yaml
 Copiar código
@@ -163,50 +190,54 @@ jobs:
           distribution: 'temurin'
       - name: Build with Maven
         run: mvn -B clean verify
-Roadmap & melhorias futuras (prioritizadas)
-Curto prazo
+Optional badges to include at the top of this README:
 
-Completar testes unitários para módulos core.
+bash
+Copiar código
+[![Build Status](https://github.com/BMSaiko/sem2-pi-24.25-g152/actions/workflows/maven.yml/badge.svg)](https://github.com/BMSaiko/sem2-pi-24.25-g152/actions)
+[![Coverage](https://coveralls.io/repos/github/BMSaiko/sem2-pi-24.25-g152/badge.svg?branch=main)](https://coveralls.io/github/BMSaiko/sem2-pi-24.25-g152?branch=main)
+Roadmap & Future Improvements
+Short Term
+Validate that Main.java matches the mainClass defined in pom.xml.
 
-Garantir que pom.xml gera um JAR executável com Main correto. 
-GitHub
+Write unit tests for core functionality.
 
-Atualizar documentação em docs/ com diagramas essenciais.
+Ensure Maven build produces a fully functional executable JAR.
 
-Médio prazo
+Mid Term
+Configure GitHub Actions for continuous integration.
 
-Integrar GitHub Actions para build/test/coverage.
+Improve code documentation with Javadoc and diagrams.
 
-Criar scripts de inicialização (ex.: start.sh) para facilitar testes locais.
+Integrate static analysis tools (Checkstyle, SpotBugs).
 
-Definir e documentar API/contratos (se houver módulos integráveis).
+Long Term
+Publish releases using GitHub Releases.
 
-Longo prazo
+Extend project modularity or integrate APIs.
 
-Empacotar e publicar release (GitHub Releases).
+Provide an end-user guide and install script.
 
-Configurar deploy automatizado (se for uma aplicação com UI/serviço).
+Known Issues
+Double-check the mainClass path in pom.xml – incorrect configuration will cause packaging failure.
 
-Documentação de instalação para utilizadores não-técnicos.
+Ensure Java version matches the build environment.
 
-Known issues / pontos de atenção
-Conferir se a classe pt.ipp.isep.dei.esoft.project.ui.Main existe e corresponde ao mainClass usado para empacotar o JAR — caso contrário actualizar o pom.xml. 
-GitHub
+MATCP notebook may need updating each sprint.
 
-Verificar compatibilidade da versão Java local com a definida no pom.xml.
+License & Contact
+License: specify your license (e.g., MIT / Apache 2.0).
 
-Licença
-Indica a licença do projecto (ex.: MIT, Apache-2.0). Se ainda não houver LICENSE, adiciona um ficheiro LICENSE com a licença escolhida.
+Team Members (example format):
 
-Contactos / Contribuidores
-Equipa: preencher nomes e responsabilidades no README (Team Members & Task Distribution). 
-GitHub
+Name	Role	Responsibilities
+[Name 1]	Scrum Master	Coordination & Documentation
+[Name 2]	Developer	Core Implementation
+[Name 3]	QA Engineer	Testing & CI
+[Name 4]	DevOps	Automation & Integration
 
-Para dúvidas ou issues: abrir um Issue no repositório.
+Contact: open a GitHub Issue or email your team representative.
 
-Créditos / Referências
-Ficheiros base e templates presentes no repositório. 
-GitHub
-
-Informação de build e mainClass obtida do pom.xml. 
-GitHub
+Credits
+This project was developed as part of the Integrative Project – Semester 2 (2024/25) at ISEP,
+following the Agile Scrum framework with continuous assessment through sprints.
